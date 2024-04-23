@@ -8,9 +8,6 @@ export default App;
 function App() {
   return (
     <div>
-      <Cursosniveles/>
-      <Paginaprincipal/>
-      <Listaexperimentos/>
       <Login/>
 
 
