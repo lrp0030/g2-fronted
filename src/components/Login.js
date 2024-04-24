@@ -1,4 +1,4 @@
-// Login.js
+
 import React from "react";
 import styles from "../assets/css/Login.module.css";
 import Logo from "../assets/img/Logo_educación.png";
@@ -43,6 +43,7 @@ const Login = () => {
       </div>
     </div>
   );
-};
 
+
+}
 export default Login;
