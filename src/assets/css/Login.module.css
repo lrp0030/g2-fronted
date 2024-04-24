@@ -1,0 +1,48 @@
+/* Login.module.css */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #79A981;
+}
+
+.content {
+  width: 300px; /* Ancho del contenido */
+  background-color: white; /* Color de fondo del formulario */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.logo {
+  max-width: 50%; /* Ajusta el tamaño del logo según sea necesario */
+  max-height: 100%;
+  margin-bottom: 20px; /* Espacio entre el logo y el formulario */
+}
+
+/* Estilos adicionales para el formulario */
+.login-form {
+  text-align: center;
+}
+
+.login-heading {
+  margin-bottom: 20px; /* Espacio bajo el encabezado del formulario */
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.btn-login {
+  display: block;
+  margin: 0 auto;
+}
+
+.register-link {
+  text-align: right;
+}

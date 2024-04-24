@@ -1,0 +1,22 @@
+.cuadro-container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .cuadros {
+    width: 80%; 
+    max-width: 300px; 
+    margin-bottom: 20px; 
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .cuadros:hover {
+    background-color: #ccc;
+  }
