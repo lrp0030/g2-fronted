@@ -21,6 +21,7 @@ function App() {
         <Route path='/registro' element={<Registro />} />
         <Route path='/contrasena' element={<Contrasena />} />
       </Routes>
+
     
   );
 }

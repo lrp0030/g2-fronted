@@ -2,12 +2,13 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "TU_AUTH_DOMAIN",
-    projectId: "TU_PROJECT_ID",
-    storageBucket: "TU_STORAGE_BUCKET",
-    messagingSenderId: "TU_MESSAGING_SENDER_ID",
-    appId: "TU_APP_ID"
+    apiKey: "AIzaSyAGJrZA8Bt9cw6AYA1LXmzLn5WY3BMmh08",
+    authDomain: "galileo-g2.firebaseapp.com",
+    databaseURL: "https://galileo-g2-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "galileo-g2",
+    storageBucket: "galileo-g2.appspot.com",
+    messagingSenderId: "310661878440",
+    appId: "1:310661878440:web:82a3c622e62f73c2bce89d"
 };
 
 const app = initializeApp(firebaseConfig);
