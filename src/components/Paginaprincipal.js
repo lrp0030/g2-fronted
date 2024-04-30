@@ -10,9 +10,9 @@ const Paginaprincipal = () => {
         <h1 className="elemento">SELECCIONA EL NIVEL ACADEMICO</h1>
       </div>
       <div className="cuadro-container">
-        <Link to="/Cursosniveles" className="cuadros">INFANTIL</Link>
+        <Link to="/infantil" className="cuadros">INFANTIL</Link>
         <Link to="/Cursosniveles" className="cuadros">PRIMARIA</Link>
-        <Link to="/Cursosniveles" className="cuadros">SECUNDARIA</Link>
+        <Link to="/Secundaria" className="cuadros">SECUNDARIA</Link>
       </div>
     </nav>
   );
