@@ -7,6 +7,7 @@ import Infantil from './components/infantil';
 import Secundaria from './components/Secundaria';
 import Registro from './components/Registrarse';
 import Contrasena from './components/OlvidoContra';
+import Listaexperimentosdatos from "./components/Listaexperimentosdatos";
 function App() {
   return (
 
@@ -15,7 +16,7 @@ function App() {
         <Route path='/' element={<Login />} />
         <Route path='/Paginaprincipal' element={<Paginaprincipal />} />
         <Route path='/Cursosniveles' element={<Cursosniveles />} />
-        <Route path='/experimentos' element={<Listaexperimentos />} />
+        <Route path='/experimentos' element={<Listaexperimentosdatos />} />
         <Route path='/infantil' element={<Infantil />} />
         <Route path='/secundaria' element={<Secundaria />} />
         <Route path='/registro' element={<Registro />} />
