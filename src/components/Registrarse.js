@@ -1,43 +1,23 @@
 
 import React from "react";
-import styles from "../assets/css/Login.module.css";
-import Logo from "../assets/img/Logo_educación.png";
+import "../assets/css/Registro.css";
 import { Link } from "react-router-dom"; 
 
 const Registro = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <div className={styles["logo-container"]}>
-          <img src={Logo} alt="Logo" className={styles.logo} />
-        </div>
-        <div className={styles["login-form"]}>
-          <form>
-            <div className={styles["form-group"]}>
-              <label htmlFor="username">Usuario:</label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                placeholder="Introduzca el usuario"
-              />
-            </div>
-            <div className={styles["form-group"]}>
-              <label htmlFor="password">Contraseña:</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Introduzca la contraseña"
-              />
-            </div>
-            
-            <Link to="/Paginaprincipal" className={styles["btn-login"]}>Crear</Link>
-            <div className={styles["register-link"]}>
-            </div>
-          </form>
-        </div>
-      </div>
+    <div>
+    <section className="form-register">
+      <h1>Registro</h1>
+      <input className="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre"></input>
+      <input className="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su apellido"></input>
+      <input className="controls" type="email" name="correos" id="correo" placeholder="Ingrese su Correo"></input>
+      <input className="controls" type="password" name="contrasena" id="contrasena" placeholder="Ingrese su Contraseña"></input>
+      <input className="controls" type="text" name="confirmacion" id="confirmacion" placeholder="Confirme la contraseña"></input>
+      <input className="controls" type="text" name="centro" id="centro" placeholder="Ingrese Su centro"></input>
+      <p>Estoy de acuerdo con <a href="#">terminos y condiciones</a></p>
+      <input className="boton" type="submit"></input>
+      <p><a href="/">¿Ya tengo cuenta?</a></p>
+    </section>
     </div>
   );
 

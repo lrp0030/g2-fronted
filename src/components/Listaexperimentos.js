@@ -8,16 +8,8 @@ const Listaexperimentos = () => {
   return (
     <div>
       <div className="barra">
-        <div className="menu-c">
-          <label className="abrir-menu" htmlFor="btn-menu">lista</label>
-        </div>
-        <input type="checkbox" id="btn-menu" />
-        <div className="menu-c" id="menu">
-          <nav>
-            <Link to="/Paginaprincipal">Experimento 1</Link>
-            <Link to="/Paginaprincipal">Experimento 2</Link>
-          </nav>
-          <label htmlFor="btn-menu">X</label>
+        <div className="btn-menu">
+          <label htmlFor="btn-menu" className="icon-menu"></label>
         </div>
         <h1 className="elemento">EXPERIMENTOS</h1>
         <div className="lista-enlaces"></div>
@@ -34,6 +26,20 @@ const Listaexperimentos = () => {
         <div className="recuadro">ARCO IRIS</div>
         <div className="recuadro">PINTURA EN LECHE</div>
       </div>
+
+      <p type="checkbox" id="btn-menu">
+        <div className="container-menu" >
+          <div className="cont-menu">
+            <nav>
+              <a href="#">Lista1</a>
+              <a href="#">Lista2</a>
+              <a href="#">Lista3</a>
+              <a href="#">Lista4</a>
+                </nav>
+                <label htmlFor="" className="icon-equis"></label>
+          </div>
+        </div>
+      </p>
     </div>
   );
 };

@@ -37,6 +37,9 @@ const Login = () => {
               <p>
                 <a href="/registro">Regístrate aquí</a>
               </p>
+              <p>
+                <a href="/">Recuperar contraseña</a>
+              </p>
             </div>
           </form>
         </div>
