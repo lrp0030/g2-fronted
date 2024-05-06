@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"; // Importa Link
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import styles from "../assets/css/Login.module.css";
 import Logo from "../assets/img/Logo_educación.png";
@@ -54,7 +54,7 @@ const Login = () => {
         </form>
         <div className={styles["register-link"]}>
           <p><a href="/registro">Regístrate aquí</a></p>
-          <p><a href="/">Recuperar contraseña</a></p>
+          <p><Link to="/contrasena">Recuperar contraseña</Link></p>  
         </div>
       </div>
     </div>
