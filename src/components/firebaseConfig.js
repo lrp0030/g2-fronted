@@ -2,14 +2,14 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAGJrZA8Bt9cw6AYA1LXmzLn5WY3BMmh08",
-    authDomain: "galileo-g2.firebaseapp.com",
-    databaseURL: "https://galileo-g2-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "galileo-g2",
-    storageBucket: "galileo-g2.appspot.com",
-    messagingSenderId: "310661878440",
-    appId: "1:310661878440:web:82a3c622e62f73c2bce89d"
-};
+    apiKey: "AIzaSyCznBE6lrZygi8cRovE5S3Hxas3PU7T4G8",
+    authDomain: "reactfirebasegalilleo.firebaseapp.com",
+    projectId: "reactfirebasegalilleo",
+    storageBucket: "reactfirebasegalilleo.appspot.com",
+    messagingSenderId: "147453531107",
+    appId: "1:147453531107:web:15e207fea82068c72746d6",
+    measurementId: "G-PM7H9GRF0R"
+  };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
