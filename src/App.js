@@ -1,6 +1,8 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Cursosniveles from './components/Cursosniveles';
 import Listaexperimentos from './components/Listaexperimentos';
 import Login from './components/Login';
@@ -10,6 +12,7 @@ import Secundaria from './components/Secundaria';
 import Registro from './components/Registrarse';
 import Contrasena from './components/OlvidoContra';  
 import Listaexperimentosdatos from "./components/Listaexperimentosdatos";
+import DetalleExperimento from "./components/DetalleExperimento";
 
 function App() {
   return (
@@ -22,6 +25,8 @@ function App() {
         <Route path='/secundaria' element={<Secundaria />} />
         <Route path='/registro' element={<Registro />} />
         <Route path='/contrasena' element={<Contrasena />} />  // Ruta para el componente de olvido de contraseña
+        <Route path='/contrasena' element={<Contrasena />} />
+        <Route path='/actividades/:id' element={<DetalleExperimento />} />
       </Routes>
   );
 }

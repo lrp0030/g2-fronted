@@ -9,58 +9,82 @@ const Listaexperimentosdatos = () => {
     useEffect(() => {
         const fetchActividades = async () => {
             try {
-                const actividadesRef = collection(db, "actividades"); // Referencia a la colección "actividades"
-                const querySnapshot = await getDocs(actividadesRef); // Obtener los documentos de la colección
+                const actividadesRef = collection(db, "actividades");
+                const querySnapshot = await getDocs(actividadesRef);
 
-                const actividadesData = []; // Array para almacenar los datos de las actividades
-
-                // Iterar sobre los documentos y agregar los datos al array
+                const actividadesData = [];
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
-                    // Verificar si el grupo es "3 años" antes de agregar la actividad
-                    if (data.grupo === "3 años") {
-                        actividadesData.push({
-                            id: doc.id,
-                            nombre: data.titulo // Asume que el campo 'titulo' contiene el nombre de la actividad
-                        });
-                    }
+                    actividadesData.push({
+                        id: doc.id,
+                        nombre: data.titulo
+                    });
                 });
 
-                // Actualizar el estado con los datos de las actividades filtradas
                 setActividades(actividadesData);
             } catch (error) {
                 console.log("Error al obtener las actividades:", error);
             }
         };
 
-        fetchActividades(); // Llama a la función para cargar las actividades cuando el componente se monta
+        fetchActividades();
     }, []);
 
     return (
         <div>
             <div className="barra">
-                <div className="menu-c">
-                    <label className="abrir-menu" htmlFor="btn-menu">
-                        lista
-                    </label>
+                <div className="btn-menu">
+                    <label htmlFor="btn-menu" className="icon-menu"></label>
                 </div>
-                <input type="checkbox" id="btn-menu" />
-                <div className="menu-c" id="menu">
-                    <nav>
-                        {/* Mapea las actividades para renderizar los enlaces */}
-                        {actividades.map((actividad) => (
-                            <Link key={actividad.id} to={`/actividades/${actividad.id}`}>
-                                {actividad.nombre}
-                            </Link>
-                        ))}
-                    </nav>
-                    <label htmlFor="btn-menu">X</label>
-                </div>
-                <h1 className="elemento">ACTIVIDADES</h1>
+                <h1 className="elemento">EXPERIMENTOS</h1>
                 <div className="lista-enlaces"></div>
+            </div>
+
+            <div className="recuadro-container">
+                {actividades.length > 0 ? (
+                    actividades.map((actividad, index) => (
+                        <div key={actividad.id} className="recuadro" style={rectangleStyle}>
+                            <Link to={`/actividades/${actividad.id}`} style={linkStyle}>
+                                <span style={textStyle}>{actividad.nombre}</span>
+                            </Link>
+                        </div>
+                    ))
+                ) : (
+                    <p>No hay actividades disponibles.</p>
+                )}
+            </div>
+
+            <div className="container-menu">
+                <div className="cont-menu">
+                    <nav>
+                        <a href="#">Lista1</a>
+                        <a href="#">Lista2</a>
+                        <a href="#">Lista3</a>
+                        <a href="#">Lista4</a>
+                    </nav>
+                    <label htmlFor="" className="icon-equis"></label>
+                </div>
             </div>
         </div>
     );
 };
 
 export default Listaexperimentosdatos;
+
+const linkStyle = {
+    textDecoration: "none",
+};
+
+const rectangleStyle = {
+    marginBottom: "40px", // Aumentado el espacio entre rectángulos
+    width: "30%", // Ancho de los rectángulos (ajustar según sea necesario)
+    padding: "30px", // Espaciado interno del rectángulo
+    borderRadius: "15px", // Bordes redondeados del rectángulo
+    backgroundColor: "rgb(120,168,128)", // Color de fondo del rectángulo
+    textAlign: "center", // Alinear el texto al centro
+    display: "inline-block", // Hacer que los rectángulos se muestren en línea
+};
+
+const textStyle = {
+    fontSize: "24px", // Aumentado el tamaño de la letra
+};
