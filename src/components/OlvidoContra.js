@@ -46,7 +46,7 @@ const Contrasena = () => {
             {error && <p className={styles.error}>{error}</p>}
           </form>
           <div className={styles["register-link"]}>
-            <Link to="/login">Volver al inicio de sesión</Link>
+            <Link to="/">Volver al inicio de sesión</Link>
           </div>
         </div>
       </div>
