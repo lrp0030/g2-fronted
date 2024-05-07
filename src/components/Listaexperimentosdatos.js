@@ -9,28 +9,25 @@ const Listaexperimentosdatos = () => {
     useEffect(() => {
         const fetchActividades = async () => {
             try {
-                const actividadesRef = collection(db, "actividades"); // Referencia a la colección "actividades"
-                const querySnapshot = await getDocs(actividadesRef); // Obtener los documentos de la colección
+                const actividadesRef = collection(db, "actividades");
+                const querySnapshot = await getDocs(actividadesRef);
 
-                const actividadesData = []; // Array para almacenar los datos de las actividades
-
-                // Iterar sobre los documentos y agregar los datos al array
+                const actividadesData = [];
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
                     actividadesData.push({
                         id: doc.id,
-                        nombre: data.titulo // Asume que el campo 'titulo' contiene el nombre de la actividad
+                        nombre: data.titulo
                     });
                 });
 
-                // Actualizar el estado con los datos de las actividades
                 setActividades(actividadesData);
             } catch (error) {
                 console.log("Error al obtener las actividades:", error);
             }
         };
 
-        fetchActividades(); // Llama a la función para cargar las actividades cuando el componente se monta
+        fetchActividades();
     }, []);
 
     return (
@@ -44,16 +41,15 @@ const Listaexperimentosdatos = () => {
             </div>
 
             <div className="recuadro-container">
-                {/* Verificar si hay actividades para mostrar */}
                 {actividades.length > 0 ? (
-                    // Mapear las actividades para renderizar los recuadros
-                    actividades.map((actividad) => (
-                        <Link key={actividad.id} to={`/actividades/${actividad.id}`} style={buttonStyle}>
-                            <div>{actividad.nombre}</div>
-                        </Link>
+                    actividades.map((actividad, index) => (
+                        <div key={actividad.id} className="recuadro" style={rectangleStyle}>
+                            <Link to={`/actividades/${actividad.id}`} style={linkStyle}>
+                                <span style={textStyle}>{actividad.nombre}</span>
+                            </Link>
+                        </div>
                     ))
                 ) : (
-                    // Mostrar un mensaje si no hay actividades
                     <p>No hay actividades disponibles.</p>
                 )}
             </div>
@@ -75,13 +71,20 @@ const Listaexperimentosdatos = () => {
 
 export default Listaexperimentosdatos;
 
-// Estilos CSS personalizados para los botones
-const buttonStyle = {
-    display: "inline-block",
-    backgroundColor: "rgb(120,168,128)", // Color de fondo del botón
-    color: "#fff", // Color del texto del botón
-    padding: "50px 50px", // Espaciado interno del botón (aumentado al triple)
-    borderRadius: "50px", // Bordes redondeados del botón
-    textDecoration: "none", // Elimina el subrayado del enlace
-    border: "none", // Elimina el borde del botón
+const linkStyle = {
+    textDecoration: "none",
+};
+
+const rectangleStyle = {
+    marginBottom: "40px", // Aumentado el espacio entre rectángulos
+    width: "30%", // Ancho de los rectángulos (ajustar según sea necesario)
+    padding: "30px", // Espaciado interno del rectángulo
+    borderRadius: "15px", // Bordes redondeados del rectángulo
+    backgroundColor: "rgb(120,168,128)", // Color de fondo del rectángulo
+    textAlign: "center", // Alinear el texto al centro
+    display: "inline-block", // Hacer que los rectángulos se muestren en línea
+};
+
+const textStyle = {
+    fontSize: "24px", // Aumentado el tamaño de la letra
 };
