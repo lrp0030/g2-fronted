@@ -8,15 +8,30 @@ const Registro = () => {
     <div>
     <section className="form-register">
       <h1>Registro</h1>
+      <label htmlFor="nombre">Nombre usuario</label>
       <input className="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre"></input>
-      <input className="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su apellido"></input>
+      <label htmlFor="correo">correo electrónico</label>
       <input className="controls" type="email" name="correos" id="correo" placeholder="Ingrese su Correo"></input>
+      <label htmlFor="pais">Pais</label>
+      <select>
+        <option value="mx">España</option>
+      </select>
+      <label htmlFor="provincia">Provincia</label>
+      <select>
+        <option value="and">Andalucía</option>
+      </select>
+      <label htmlFor="ciudad">ciudad</label>
+      <select>
+        <option value="sv">Sevilla</option>
+      </select>
+      <label htmlFor="contraseña">contraseña</label>
       <input className="controls" type="password" name="contrasena" id="contrasena" placeholder="Ingrese su Contraseña"></input>
+      <label htmlFor="repetir">confirme contraseña</label>
       <input className="controls" type="text" name="confirmacion" id="confirmacion" placeholder="Confirme la contraseña"></input>
-      <input className="controls" type="text" name="centro" id="centro" placeholder="Ingrese Su centro"></input>
+      
       <p>Estoy de acuerdo con <a href="#">terminos y condiciones</a></p>
-      <input className="boton" type="submit"></input>
-      <p><a href="/">¿Ya tengo cuenta?</a></p>
+      <Link to="/Pago" className="boton">Siguiente</Link>
+      <p><a href="/">¿Ya tienes cuenta?</a></p>
     </section>
     </div>
   );

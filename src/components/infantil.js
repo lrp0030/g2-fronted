@@ -7,6 +7,10 @@ const Infantil = () => {
   return (
     <nav>
       <div className="barra">
+      <h2 className="elemonto1">
+          {/* Utiliza Link en lugar de link */}
+          <Link to="/Paginaprincipal">ATRÁS</Link>
+        </h2>
         <h1 className="elemento">SELECCIONE EL CURSO</h1>
       </div>
       <div className="cuadro-container">
