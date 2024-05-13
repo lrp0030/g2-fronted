@@ -1,0 +1,52 @@
+.suscripcion-container {
+    font-family: Arial, sans-serif;
+    color: #333333; /* Gris 2 */
+  }
+  
+  .banner {
+    background-color: #79a981; /* Verde */
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  .planes-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .plan {
+    border: 2px solid #9b9b9b; /* Gris 1 */
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+  }
+  
+  .icono {
+    font-size: 50px;
+  }
+  
+  button {
+    background-color: #79a981; /* Verde */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #333333; /* Gris 2 */
+  }
+  
+  .plan h2 {
+    color: #79a981; /* Verde */
+  }
+  
+  .plan p {
+    color: #333333; /* Gris 2 */
+  }
+  

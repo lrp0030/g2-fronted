@@ -52,6 +52,7 @@ const Listaexperimentos = () => {
                 <div className="btn-menu">
                     <label htmlFor="btn-menu" className="icon-menu"></label>
                 </div>
+                <Link to="/experimento" className="boton-experimento">Ir al Experimento</Link> {/* Botón para ir al componente Experimento */}
                 <h1 className="elemento">EXPERIMENTOS</h1>
                 <div className="lista-enlaces"></div>
             </div>

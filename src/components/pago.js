@@ -1,7 +1,7 @@
-
 import React from "react";
+import { Link } from "react-router-dom";
+import { FaCreditCard } from 'react-icons/fa'; // Importando icono de tarjeta
 import "../assets/css/Registro.css";
-import { Link } from "react-router-dom"; 
 import "../assets/css/pago.css";
 
 const MesAnoTarjeta = () => {
@@ -12,25 +12,31 @@ const MesAnoTarjeta = () => {
       <input className="mes-ano-tarjeta__ano" type="text" maxLength="2" placeholder="YY" />
     </div>
   );
-}
-
+};
 
 const Datosbancarios = () => {
   return (
-    <div>
-    <section className="form-register">
-    
-      <label htmlFor="nombre">Numero tarjeta</label>
-      <input className="controls" type="text" name="nombres" id="nombres" placeholder="****/****/****/****"></input>
+    <div className="datos-bancarios-container">
+      <h1>Pago con Tarjeta <FaCreditCard /></h1> {/* Icono de tarjeta de crédito */}
+      <section className="form-register">
+        <label htmlFor="numero-tarjeta">Número de tarjeta</label>
+        <input className="controls" type="text" name="numero-tarjeta" id="numero-tarjeta" placeholder="1234 5678 9101 1121" />
         <label htmlFor="cvv">CVV</label>
-        <input className="controls" type="text" name="cvv" id="cvv" placeholder="Ingrese el CVV" />
+        <input className="controls" type="text" name="cvv" id="cvv" placeholder="123" />
         <MesAnoTarjeta />
-        <Link to="/Pago" className="boton">validar</Link>
-        <Link to="/registro" className="boton">Atrás</Link>
-    </section>
+        <Link to="/confirmacion" className="boton validar">Validar</Link>
+        <Link to="/registro" className="boton atras">Atrás</Link>
+      </section>
     </div>
   );
+};
+
+const IconoTarjeta = () => (
+  <div>
+    <FaCreditCard />
+    <p>Usa tu tarjeta de crédito para pagar</p>
+  </div>
+);
 
 
-}
 export default Datosbancarios;
