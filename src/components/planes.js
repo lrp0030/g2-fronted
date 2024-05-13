@@ -9,7 +9,7 @@ const Listaexperimentos = () => {
     useEffect(() => {
         const fetchActividades = async () => {
             try {
-                const actividadesRef = collection(db, "actividades", "infantil", "actividades");
+                const actividadesRef = collection(db, "actividades");
                 const querySnapshot = await getDocs(actividadesRef);
         
                 const actividadesData = [];
@@ -31,17 +31,17 @@ const Listaexperimentos = () => {
     }, []);
 
     return (
-        <div>
-        <div>
-            <h1>plan basico</h1>
-            <p>ventajas</p>
+        <div id="planModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDescription"></p>
+          <p id="modalPrice"></p>
+          <button type="submit" id="subcribirse">subcripción</button>
+        
         </div>
-        <h1>plan basico+</h1>
-        <div>
-            <h1>plan premium</h1>
-            <p>ventajas</p>
-        </div>
-        </div>
+      </div>
+    
     );
 };
 
