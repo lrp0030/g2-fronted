@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import "../assets/css/Cursosniveles.css";
 import "../assets/css/Paginalniveles.css";
 
@@ -10,9 +10,9 @@ const Infantil = () => {
         <h1 className="elemento">SELECCIONE EL CURSO</h1>
       </div>
       <div className="cuadro-container" style={containerStyle}>
-      <Link to="/Listaexperimentos" className="cuadros" style={cuadroStyle}>3</Link>
-      <Link to="/Listaexperimentos" className="cuadros" style={cuadroStyle}>4</Link>
-      <Link to="/Listaexperimentos" className="cuadros" style={cuadroStyle}>5</Link>
+        <Link to="/Listaexperimentos/grupo/3" className="cuadros" style={cuadroStyle}>3</Link>
+        <Link to="/Listaexperimentos/grupo/4" className="cuadros" style={cuadroStyle}>4</Link>
+        <Link to="/Listaexperimentos/grupo/5" className="cuadros" style={cuadroStyle}>5</Link> {/* Nuevo botón */}
       </div>
     </nav>
   );

@@ -32,7 +32,7 @@ const Paginaprincipal = () => {
         <Link to="/infantil" className="cuadros infantil" style={cuadroStyle}>
           <div className="medio">INFANTIL</div>
         </Link>
-        <Link to="/Cursosniveles" className="cuadros primaria" style={cuadroStyle}>
+        <Link to="/Primaria" className="cuadros primaria" style={cuadroStyle}>
           <div className="medio">PRIMARIA</div>
         </Link>
         <Link to="/Secundaria" className="cuadros secundaria" style={cuadroStyle}>

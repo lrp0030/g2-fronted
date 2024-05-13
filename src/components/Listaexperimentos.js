@@ -1,37 +1,53 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import db from "./firebaseConfig"; // Importa la instancia de Firestore desde donde la hayas exportado
-import { collection, getDocs } from "firebase/firestore";
+import { Link, useLocation } from "react-router-dom";
+import db from "./firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { useParams } from "react-router-dom";
 
 const Listaexperimentos = () => {
+    const { grupo } = useParams();
     const [actividades, setActividades] = useState([]);
+    const location = useLocation();
+    const grupoSeleccionado = location.pathname.split("/").pop(); // Obtener el último segmento de la URL
 
     useEffect(() => {
         const fetchActividades = async () => {
             try {
-                const actividadesRef = collection(db, "actividades", "infantil", "actividades");
-                const querySnapshot = await getDocs(actividadesRef);
-        
-                const actividadesData = [];
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    actividadesData.push({
-                        id: doc.id,
-                        nombre: data.titulo
-                    });
-                });
-        
-                setActividades(actividadesData);
+                if (grupoSeleccionado) {
+                    const actividadesRef = collection(db, "actividades", "infantil", "actividades");
+                    let q;
+                    if (grupoSeleccionado === "3") {
+                        q = query(actividadesRef, where("grupo", "==", 3));
+                    } else if (grupoSeleccionado === "4") {
+                        q = query(actividadesRef, where("grupo", "==", 4));
+                    } else if (grupoSeleccionado === "5") {
+                        q = query(actividadesRef, where("grupo", "==", 5));
+                    }
+                    
+                    if (q) {
+                        const querySnapshot = await getDocs(q);
+                        const actividadesData = [];
+                        querySnapshot.forEach((doc) => {
+                            const data = doc.data();
+                            actividadesData.push({
+                                id: doc.id,
+                                nombre: data.titulo
+                            });
+                        });
+                        setActividades(actividadesData);
+                    }
+                }
             } catch (error) {
                 console.log("Error al obtener las actividades:", error);
             }
         };
 
         fetchActividades();
-    }, []);
+    }, [grupoSeleccionado]);
 
     return (
         <div>
+            {/* Renderizado de los documentos */}
             <div className="barra">
                 <div className="btn-menu">
                     <label htmlFor="btn-menu" className="icon-menu"></label>
@@ -54,13 +70,13 @@ const Listaexperimentos = () => {
                 )}
             </div>
 
+            {/* Enlaces para seleccionar el grupo */}
             <div className="container-menu">
                 <div className="cont-menu">
                     <nav>
-                        <a href="#" style={{ color: "white" }}>Lista1</a>
-                        <a href="#" style={{ color: "white" }}>Lista2</a>
-                        <a href="#" style={{ color: "white" }}>Lista3</a>
-                        <a href="#" style={{ color: "white" }}>Lista4</a>
+                        <Link to="/Listaexperimentos/grupo/3" style={{ color: "white" }}>3</Link>
+                        <Link to="/Listaexperimentos/grupo/4" style={{ color: "white" }}>4</Link>
+                        <Link to="/Listaexperimentos/grupo/5" style={{ color: "white" }}>5</Link>
                     </nav>
                     <label htmlFor="" className="icon-equis"></label>
                 </div>
