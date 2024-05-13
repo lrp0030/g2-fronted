@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 import db from "./firebaseConfig"; // Importa la instancia de Firestore desde donde la hayas exportado
 import { collection, getDocs } from "firebase/firestore";
 
-const Listaexperimentos = () => {
+const Planes = () => {
     const [actividades, setActividades] = useState([]);
+
+    const modal = document.getElementById('planModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalPrice = document.getElementById('modalPrice');
+    const navigate = useNavigate(); // Para redirigir al usuario
+    const contenedorPlanes = document.getElementById('contenedor-planes');
 
     useEffect(() => {
         const fetchActividades = async () => {
@@ -45,23 +53,9 @@ const Listaexperimentos = () => {
     );
 };
 
-export default Listaexperimentos;
+export default Planes;
 
 const linkStyle = {
     textDecoration: "none",
 };
 
-const rectangleStyle = {
-    marginBottom: "40px", // Aumentado el espacio entre rectángulos
-    width: "30%", // Ancho de los rectángulos (ajustar según sea necesario)
-    padding: "30px", // Espaciado interno del rectángulo
-    borderRadius: "50px", // Bordes redondeados del rectángulo
-    backgroundColor: "rgb(120,168,128)", // Color de fondo del rectángulo
-    textAlign: "center", // Alinear el texto al centro
-    display: "inline-block", // Hacer que los rectángulos se muestren en línea
-};
-
-const textStyle = {
-    fontSize: "24px", // Aumentado el tamaño de la letra
-    color: "white", // Color del texto
-};
