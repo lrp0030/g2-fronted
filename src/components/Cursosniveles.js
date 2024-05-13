@@ -14,7 +14,6 @@ const Cursosniveles = () => {
       </div>
 
       <div className="recuadro-container">
-        {/* Utiliza Link en lugar de link */}
         <Link to="/listaexperimentos" className="recuadro">1º PRIMARIA</Link>
         <a href="" className="recuadro">4º PRIMARIA</a>
       </div>
