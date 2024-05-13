@@ -10,6 +10,7 @@ import Registro from './components/Registrarse';
 import Contrasena from './components/OlvidoContra';  
 import DetalleExperimento from "./components/DetalleExperimento";
 import PlanesSuscripcion from './components/PlanesSuscripcion';
+import Pago from './components/pago';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/contrasena' element={<Contrasena />} />  // Ruta única para el componente de olvido de contraseña
         <Route path='/actividades/:id' element={<DetalleExperimento />} />
         <Route path="/suscripcion" element={<PlanesSuscripcion />} />
+        <Route path="/pago" element={<Pago/>} />
       </Routes>
   );
 }

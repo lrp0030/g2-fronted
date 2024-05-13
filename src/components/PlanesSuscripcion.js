@@ -13,7 +13,7 @@ function PlanesSuscripcion() {
 
   const seleccionarPlan = (plan) => {
     console.log(`Plan seleccionado: ${plan.tipo}`);
-    // navigate('/ruta-a-redirigir'); // Opcional: redirigir al usuario
+    navigate('/pago'); 
   };
 
   return (
