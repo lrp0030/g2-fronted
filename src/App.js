@@ -10,13 +10,14 @@ import Registro from './components/Registrarse';
 import Contrasena from './components/OlvidoContra';  
 import DetalleExperimento from "./components/DetalleExperimento";
 import Pago from './components/pago';
+import Primaria from './components/Primaria';
 
 function App() {
   return (
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/Paginaprincipal' element={<Paginaprincipal />} />
-        <Route path='/Primaria' element={<Cursosniveles />} />
+        <Route path='/Primaria' element={<Primaria />} />
         <Route path='/Listaexperimentos/grupo/:grupo' element={<Listaexperimentos />} /> 
         <Route path='/infantil' element={<Infantil />} />
         <Route path='/secundaria' element={<Secundaria />} />
