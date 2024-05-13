@@ -30,7 +30,7 @@ const Registro = () => {
       <input className="controls" type="text" name="confirmacion" id="confirmacion" placeholder="Confirme la contraseña"></input>
       
       <p>Estoy de acuerdo con <a href="#">terminos y condiciones</a></p>
-      <Link to="/Pago" className="boton">Siguiente</Link>
+      <Link to="/suscripcion" className="boton">Siguiente</Link>
       <p><a href="/">¿Ya tienes cuenta?</a></p>
     </section>
     </div>
