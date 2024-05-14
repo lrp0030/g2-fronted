@@ -9,7 +9,7 @@ import Contrasena from './components/OlvidoContra';
 import DetalleExperimento from "./components/DetalleExperimento";
 import PlanesSuscripcion from './components/PlanesSuscripcion';
 import Pago from './components/pago';
-import Infantil from './components/Infantil';
+import Infantil from './components/infantil';
 import Primaria from './components/Primaria';
 
 function App() {
