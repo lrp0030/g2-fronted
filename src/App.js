@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Listaexperimentos from './components/Listaexperimentos'; // Importa el componente Listaexperimentos
 import Login from './components/Login';
 import Paginaprincipal from './components/Paginaprincipal';
-import Infantil from './components/Infantil';
+import Infantil from './components/infantil';
 import Secundaria from './components/Secundaria';
 import Registro from './components/Registrarse';
 import Contrasena from './components/OlvidoContra';  
