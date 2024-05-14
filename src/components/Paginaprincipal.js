@@ -29,7 +29,7 @@ const Paginaprincipal = () => {
         </div>
       </div>
       <div className="cuadro-container" style={containerStyle}>
-        <Link to="/infantil" className="cuadros infantil" style={cuadroStyle}>
+        <Link to="/Infantil" className="cuadros infantil" style={cuadroStyle}>
           <div className="medio">INFANTIL</div>
         </Link>
         <Link to="/Primaria" className="cuadros primaria" style={cuadroStyle}>

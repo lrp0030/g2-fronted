@@ -5,6 +5,7 @@ const Primaria = () => {
   return (
     <nav>
       <div className="barra">
+      <Link to="/Paginaprincipal">ATRÁS</Link>
         <h1 className="elemento">SELECCIONE EL CURSO</h1>
       </div>
       <div className="centrado" style={centradoStyle}>
