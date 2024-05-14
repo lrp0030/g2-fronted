@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { sendEmailVerification, getAuth , signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-
+import { collection, addDoc } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyCznBE6lrZygi8cRovE5S3Hxas3PU7T4G8",
   authDomain: "reactfirebasegalilleo.firebaseapp.com",
