@@ -8,18 +8,18 @@ const Primaria = () => {
       <Link to="/Paginaprincipal">ATRÁS</Link>
         <h1 className="elemento">SELECCIONE EL CURSO</h1>
       </div>
-      <div className="centrado" style={centradoStyle}> {/* Nuevo contenedor para centrar */}
+      <div className="centrado" style={centradoStyle}>
         <div className="cuadro-container" style={containerStyle}>
           {/* Primera columna */}
           <div className="columna">
             <Link to="/Listaexperimentos/grupo/1" className="cuadros" style={cuadroStyle}>1º </Link>
-            <Link to="/Listaexperimentos/grupo/2" className="cuadros" style={cuadroStyle}>2º </Link>
             <Link to="/Listaexperimentos/grupo/3" className="cuadros" style={cuadroStyle}>3º </Link>
+            <Link to="/Listaexperimentos/grupo/5" className="cuadros" style={cuadroStyle}>5º </Link>
           </div>
           {/* Segunda columna */}
           <div className="columna">
+            <Link to="/Listaexperimentos/grupo/2" className="cuadros" style={cuadroStyle}>2º </Link>
             <Link to="/Listaexperimentos/grupo/4" className="cuadros" style={cuadroStyle}>4º </Link>
-            <Link to="/Listaexperimentos/grupo/5" className="cuadros" style={cuadroStyle}>5º </Link>
             <Link to="/Listaexperimentos/grupo/6" className="cuadros" style={cuadroStyle}>6º </Link>
           </div>
         </div>
@@ -31,31 +31,30 @@ const Primaria = () => {
 export default Primaria;
 
 const cuadroStyle = {
-  marginBottom: "20px", // Espacio entre cuadros
-  width: "400px", // Ancho del rectángulo
-  height: "200px", // Altura del rectángulo
-  borderRadius: "50px", // Bordes redondeados
-  backgroundColor: "rgb(120, 168, 128)", // Color de fondo del rectángulo
-  display: "flex", // Para alinear el texto verticalmente
-  justifyContent: "center", // Para centrar el texto horizontalmente
-  alignItems: "center", // Para centrar el texto verticalmente
-  textDecoration: "none", // Quitar subrayado de los enlaces
-  color: "white", // Color de texto blanco
-  fontSize: "50px", // Tamaño de letra
-  fontWeight: "bold", // Texto en negrita
+  marginBottom: "20px",
+  width: "400px",
+  height: "200px",
+  borderRadius: "50px",
+  backgroundColor: "rgb(120, 168, 128)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  textDecoration: "none",
+  color: "white",
+  fontSize: "50px",
+  fontWeight: "bold",
 };
 
 const containerStyle = {
-  display: "grid", // Utilizar un diseño de cuadrícula
-  gridTemplateColumns: "1fr 1fr", // Dos columnas con el mismo tamaño
-  gap: "20px", // Espacio entre las columnas
-  justifyContent: "center", // Centrar horizontalmente las columnas
-  marginBottom: "20px", // Agregamos margen inferior al contenedor
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gap: "20px",
+  justifyContent: "center",
+  marginBottom: "20px",
 };
 
 const centradoStyle = {
-  display: "flex", // Utilizar flexbox
-  justifyContent: "center", // Centrar horizontalmente
-  paddingLeft: "20px", // Agregar espacio en el lado izquierdo
+  display: "flex",
+  justifyContent: "center",
+  paddingLeft: "20px",
 };
-
