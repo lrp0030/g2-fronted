@@ -12,6 +12,7 @@ import Pago from './components/pago';
 import Infantil from './components/Infantil';
 import Primaria from './components/Primaria';
 import Experimento from './components/Experimentos';
+import Experimento from './components/Experimentos';
 
 function App() {
   return (
