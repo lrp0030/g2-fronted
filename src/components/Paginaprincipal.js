@@ -13,9 +13,7 @@ const Paginaprincipal = () => {
           <Link to="/" className="enlace-cerrar">cerrar</Link>
         </h2>
         <h1 className="elemento">SELECCIONA EL NIVEL ACADEMICO</h1>
-        <button className="menu_button" onClick={() => setIsOpen(!isOpen)}>
-          logo casa
-        </button>
+        <button className="casa" onClick={() => setIsOpen(!isOpen)}>logo casa</button>
         <div className={`nav_items ${isOpen && "open"}`}>
           <a href="#" className="item-cambiar">cambiar</a>
         </div>

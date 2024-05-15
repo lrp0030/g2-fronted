@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/Cursosniveles.css";
 import "../assets/css/Paginalniveles.css";
+import "../assets/css/flechas.css";
 
 const Infantil = () => {
   return (
     <nav>
       <div className="barra">
-      <Link to="/Paginaprincipal">ATRÁS</Link>
+      <Link className="flecha" to="/Paginaprincipal"></Link>
         <h1 className="elemento">SELECCIONE EL CURSO</h1>
       </div>
       <div className="cuadro-container" style={containerStyle}>
