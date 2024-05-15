@@ -38,6 +38,8 @@ const Paginaprincipal = () => {
         <Link to="/Secundaria" className="cuadros secundaria" style={cuadroStyle}>
           <div className="medio">SECUNDARIA</div>
         </Link>
+        {/* Agrega el enlace aquí */}
+        <Link to="/Listaexperimentos/primaria/5" style={{ textDecoration: "none", color: "white", fontSize: "24px", fontWeight: "bold" }}>5</Link>
       </div>
     </nav>
   );
@@ -61,4 +63,3 @@ const containerStyle = {
   display: "flex",
   justifyContent: "space-around",
 };
-
