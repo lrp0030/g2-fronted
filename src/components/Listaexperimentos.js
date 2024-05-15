@@ -34,7 +34,19 @@ const Listaexperimentos = () => {
                 <div className="btn-menu">
                     <label htmlFor="btn-menu" className="icon-menu"></label>
                 </div>
-                <Link to="/experimento" className="boton-experimento">Ir al Experimento</Link>
+                 <div>
+                {actividades.length > 0 ? (
+                    actividades.map((actividad, index) => (
+                        <div key={actividad.id}>
+                            <Link to={`/experimento/${actividad.id}`}>
+                                <span>Ir al experimento</span>
+                            </Link>
+                        </div>
+                    ))
+                ) : (
+                    <p>No hay actividades disponibles.</p>
+                )}
+            </div>
                 <h1 className="elemento">EXPERIMENTOS</h1>
                 <div className="lista-enlaces"></div>
             </div>
