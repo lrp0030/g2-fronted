@@ -11,6 +11,7 @@ import PlanesSuscripcion from './components/PlanesSuscripcion';
 import Pago from './components/pago';
 import Infantil from './components/infantil';
 import Primaria from './components/Primaria';
+import Experimento from './components/Experimentos';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/Paginaprincipal' element={<Paginaprincipal />} />
         <Route path='/Primaria' element={<Primaria />} />
         <Route path='/Listaexperimentos/grupo/:grupo' element={<Listaexperimentos />} /> 
+        <Route path='/experimento/:id' element={<Experimento />} /> 
         <Route path='/Infantil' element={<Infantil />} />
         <Route path='/secundaria' element={<Secundaria />} />
         <Route path='/registro' element={<Registro />} />
