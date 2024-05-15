@@ -10,8 +10,9 @@ const DetalleExperimento = () => {
     useEffect(() => {
         const fetchExperimento = async () => {
             try {
-                const experimentoRef = doc(db, "actividades", id);
-                const experimentoSnap = await getDoc(experimentoRef);
+                console.log("DB: ", db) 
+                const actividadRef = doc(db, "actividades", "infantil", "actividades", id);
+                const experimentoSnap = await getDoc(actividadRef);
 
                 if (experimentoSnap.exists()) {
                     const data = experimentoSnap.data();
