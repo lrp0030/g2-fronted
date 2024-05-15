@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
-import db from './firebaseConfig'; // Asegúrate de que la ruta de importación es correcta
+import db from './firebaseConfig';
 
 function Experimento() {
   const [experimento, setExperimento] = useState(null);
   const [pasoActual, setPasoActual] = useState(0);
-  const { actividadId } = useParams(); // Asume que estás usando react-router-dom y que el id se pasa así
+  const { actividadId } = useParams(); // Asegúrate de que el nombre del parámetro coincide con el configurado en tu ruta
 
   useEffect(() => {
     const fetchExperimento = async () => {
-      const docRef = doc(db, "actividades", "infantil", "actividades", actividad1); // Ajusta esta ruta según tu estructura
+      console.log("Fetching data for ID:", actividadId); // Depuración para confirmar el ID
+      const docRef = doc(db, "actividades", "infantil", "actividades", actividadId);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data()); // Depuración para ver los datos obtenidos
         setExperimento({ id: docSnap.id, ...docSnap.data() });
       } else {
-        console.log("No such document!");
+        console.log("No such document!"); // Informa si el documento no existe
       }
     };
 
     fetchExperimento();
-  }, [actividadId]);
+  }, [actividadId]); // Asegúrate de que actividadId está definido como dependencia
 
   if (!experimento) {
     return <div>Loading...</div>;
