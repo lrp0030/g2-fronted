@@ -34,19 +34,6 @@ const Listaexperimentos = () => {
                 <div className="btn-menu">
                     <label htmlFor="btn-menu" className="icon-menu"></label>
                 </div>
-                 <div>
-                {actividades.length > 0 ? (
-                    actividades.map((actividad, index) => (
-                        <div key={actividad.id}>
-                            <Link to={`/experimento/${actividad.id}`}>
-                                <span>Ir al experimento</span>
-                            </Link>
-                        </div>
-                    ))
-                ) : (
-                    <p>No hay actividades disponibles.</p>
-                )}
-            </div>
                 <h1 className="elemento">EXPERIMENTOS</h1>
                 <div className="lista-enlaces"></div>
             </div>
@@ -55,8 +42,9 @@ const Listaexperimentos = () => {
                 {actividades.length > 0 ? (
                     actividades.map((actividad, index) => (
                         <div key={actividad.id} className="recuadro" style={rectangleStyle}>
-                            <Link to={`/actividades/${actividad.id}`} style={{ ...linkStyle, color: "white" }}>
-                                <span style={textStyle}>{actividad.nombre}</span>
+                            {/* Movemos el enlace directamente dentro del área verde */}
+                            <Link to={`/experimento/${actividad.id}`} style={linkStyle}>
+                                {actividad.nombre}
                             </Link>
                         </div>
                     ))
@@ -70,10 +58,6 @@ const Listaexperimentos = () => {
 
 export default Listaexperimentos;
 
-const linkStyle = {
-    textDecoration: "none",
-};
-
 const rectangleStyle = {
     marginBottom: "40px",
     width: "30%",
@@ -84,7 +68,8 @@ const rectangleStyle = {
     display: "inline-block",
 };
 
-const textStyle = {
-    fontSize: "24px",
+const linkStyle = {
+    textDecoration: "none",
     color: "white",
+    fontSize: "24px",
 };
