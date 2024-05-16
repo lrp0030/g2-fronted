@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Listaexperimentos from './components/Listaexperimentos'; // Importa el componente Listaexperimentos
 import Login from './components/Login';
 import Paginaprincipal from './components/Paginaprincipal';
@@ -11,6 +11,7 @@ import PlanesSuscripcion from './components/PlanesSuscripcion';
 import Pago from './components/pago';
 import Infantil from './components/infantil';
 import Primaria from './components/Primaria';
+import Experimento from './components/Experimentos';
 
 function App() {
   return (
@@ -18,7 +19,10 @@ function App() {
         <Route path='/' element={<Login />} />
         <Route path='/Paginaprincipal' element={<Paginaprincipal />} />
         <Route path='/Primaria' element={<Primaria />} />
-        <Route path='/Listaexperimentos/grupo/:grupo' element={<Listaexperimentos />} /> 
+        <Route path='/Listaexperimentos/infantil/:grupo' element={<Listaexperimentos />} />
+        <Route path='/Listaexperimentos/primaria/:grupo' element={<Listaexperimentos />} />
+        <Route path='/Primaria' element={<Primaria />} />
+        <Route path='/experimento/:id' element={<Experimento />} /> 
         <Route path='/Infantil' element={<Infantil />} />
         <Route path='/secundaria' element={<Secundaria />} />
         <Route path='/registro' element={<Registro />} />
@@ -29,5 +33,5 @@ function App() {
       </Routes>
   );
 }
- 
+
 export default App;
