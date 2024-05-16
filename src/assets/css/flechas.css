@@ -1,0 +1,8 @@
+.flecha {
+    display: inline-block;
+    width: 60px; 
+    height: 60px; 
+    background-image: url(../img/flecha-izquierdaprin.png);
+    background-size: cover;
+  }
+  

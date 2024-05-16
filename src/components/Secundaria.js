@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom"; 
 import "../assets/css/Cursosniveles.css";
-
+import "../assets/css/flechas.css";
 const Secundaria = () => {
   return (
     <nav>
       <div className="barra">
         <h2 className="elemonto1">
           {/* Utiliza Link en lugar de link */}
-          <Link to="/Paginaprincipal">ATRÁS</Link>
+          <Link className="flecha" to="/Paginaprincipal"></Link>
         </h2>
         <h1 className="elemento">SELECCIONA EL CURSO</h1>
       </div>

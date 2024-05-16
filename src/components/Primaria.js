@@ -1,11 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+
+import React from "react";
+import { Link } from "react-router-dom";
+import "../assets/css/flechas.css";
+
 
 const Primaria = () => {
   return (
     <nav>
       <div className="barra">
-        <Link to="/Paginaprincipal">ATRÁS</Link>
+
+      <Link className="flecha" to="/Paginaprincipal"></Link>
+
         <h1 className="elemento">SELECCIONE EL CURSO</h1>
       </div>
       <div className="centrado" style={centradoStyle}>
