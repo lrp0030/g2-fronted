@@ -1,12 +1,10 @@
-
-
 .form-register {
     width: 400px;
-    background: #79A981;
+    background: #79A981 !important; /* Color de fondo verde */
     padding: 30px;
     margin: auto;
-    margin-top: 100px; 
-    font-family: 'Calibri', sans-serif; 
+    margin-top: 100px;
+    font-family: 'Calibri', sans-serif;
     border-radius: 4px;
     color: white;
 }
@@ -23,7 +21,7 @@
     padding: 10px;
     border: 1px solid #1f53c5;
     font-size: 18px;
-    font-family: 'Calibri', sans-serif; 
+    font-family: 'Calibri', sans-serif;
     margin-bottom: 16px;
 }
 
@@ -51,22 +49,21 @@
     color: white;
     margin: 16px;
     font-size: 16px;
-    cursor: pointer; 
+    cursor: pointer;
     display: flex;
     justify-content: center;
 }
 
 .form-register input {
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
-select{
-   width: 90%;
+select {
+    width: 90%;
     background: white;
     padding: 10px;
     border: 1px solid #1f53c5;
     font-size: 16px;
-    font-family: 'Calibri', sans-serif; 
+    font-family: 'Calibri', sans-serif;
     margin-bottom: 16px;
 }
-

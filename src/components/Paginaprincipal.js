@@ -2,22 +2,26 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/Cursosniveles.css";
 import "../assets/css/Paginalniveles.css";
-import Burguerbutton from "./menudesple";
+import BurguerButton from "./menudesple";
+import IdenUsuario from "./idenusuario";
 
-const Paginaprincipal = () => {
+const Paginaprincipal = ({ userId }) => {
   const [isOpen, setIsOpen] = useState(false);
+  
 
   return (
-    <nav>
-      <div className="barra">
-        <h2 className="elemento1">
-          <Link to="/" className="enlace-cerrar">cerrar</Link>
-        </h2>
-        <h1 className="elemento">SELECCIONA EL NIVEL ACADEMICO</h1>
+    <div>
+      <nav>
+        <div className="barra">
        
-        <div className={`nav_items ${isOpen && "open"}`}>
-          <a href="#" className="item-cambiar">cambiar</a>
+          <h1 className="elemento">SELECCIONA EL NIVEL ACADEMICO</h1>
+          <BurguerButton isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
+      </nav>
+      <div className={`menu-lateral ${isOpen ? "open" : ""}`}>
+        <Link to="/Politicas" className="contactos">Contactenos</Link>
+        <Link to="/Politica" className="politicas">Politicas de privacidad</Link>
+        <Link to="/" className="enlace-cerrar">Cerrar sesión</Link>
       </div>
       <div className="cuadro-container" style={containerStyle}>
         <Link to="/Infantil" className="cuadros infantil" style={cuadroStyle}>
@@ -31,7 +35,7 @@ const Paginaprincipal = () => {
         </Link>
         <Link to="/Listaexperimentos/primaria/5" style={{ textDecoration: "none", color: "white", fontSize: "24px", fontWeight: "bold" }}>5</Link>
       </div>
-    </nav>
+    </div>
   );
 };
 

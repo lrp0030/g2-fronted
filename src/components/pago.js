@@ -25,7 +25,7 @@ const Datosbancarios = () => {
         <input className="controls" type="text" name="cvv" id="cvv" placeholder="123" />
         <MesAnoTarjeta />
         <Link to="/confirmacion" className="boton validar">Validar</Link>
-        <Link to="/registro" className="boton atras">Atrás</Link>
+        <Link to="/suscripcion" className="boton atras">Atrás</Link>
       </section>
     </div>
   );
