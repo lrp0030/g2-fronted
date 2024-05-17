@@ -52,3 +52,9 @@
       transform: translate(-50%, -50%); /* Centra el cuadro exactamente en el centro del cuadro padre */
     }
     
+    .usuario {
+      margin-right: 20px;
+      font-size: 18px;
+      color: #fff; /* Ajusta el color según sea necesario */
+    }
+    
