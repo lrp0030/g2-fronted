@@ -1,68 +1,87 @@
-/* Contenedor principal del experimento */
+/* Estilo del contenedor principal */
 .experimentoContainer {
-  max-width: 600px;
+  max-width: 800px;
   margin: auto;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  border-radius: 8px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Fuente amigable para niños */
 }
 
-/* Título del experimento */
+/* Header con título y grupo, diseño lado a lado */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .experimentoTitle {
-  color: #343a40;
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 16px;
+  color: #79a981; /* Color principal */
+  font-size: 28px;
+  margin-bottom: 0;
 }
 
-/* Descripción del experimento */
-.experimentoDescription {
+.grupo {
+  background-color: #f3f8f3; /* Color suave complementario */
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #79a981;
+}
+
+/* Estilos para la descripción y preguntas */
+.experimentoDescription, .hipotesis, .explicacion, .conclusion {
+  color: #333;
   font-size: 16px;
-  line-height: 1.5;
-  color: #666;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
-/* Encabezado de los materiales */
-.materialsHeader {
-  color: #007bff;
+.hipotesis h3, .conclusion h3 {
+  color: #79a981;
   font-size: 20px;
-  margin-bottom: 10px;
 }
 
-/* Lista de materiales */
+.materialsHeader {
+  color: #79a981;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
 .materialList {
   list-style-type: none;
   padding-left: 0;
-  margin-bottom: 20px;
 }
 
-/* Elemento individual de la lista */
 .materialItem {
-  background: #f8f9fa;
+  background: #f0f5f0;
   padding: 10px;
   margin-bottom: 5px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
+  border-radius: 8px;
+  border-left: 5px solid #79a981;
 }
 
-/* Contenedor de los controles */
+/* Controles de navegación con iconos */
 .controls {
   text-align: center;
   margin-top: 20px;
 }
 
-/* Botones de navegación */
 .controlButton {
-  background-color: #007bff;
+  background-color: #79a981;
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 5px;
   transition: background-color 0.3s;
+}
+
+.carouselContainer {
+  margin-top: 20px;
+  padding: 20px;
 }
 
 .controlButton:disabled {
@@ -71,5 +90,20 @@
 }
 
 .controlButton:not(:disabled):hover {
-  background-color: #0056b3;
+  background-color: #567a5f;
+}
+
+.explicacion {
+  background-color: #f0f5f0; /* Fondo claro para contraste */
+  border: 2px solid #79a981; /* Borde del color principal */
+  padding: 15px; /* Espaciado interno para mejor legibilidad */
+  border-radius: 8px; /* Bordes redondeados para un look suave */
+  margin-top: 20px; /* Espaciado superior */
+  margin-bottom: 20px; /* Espaciado inferior */
+  color: #333; /* Color de texto */
+  font-size: 16px; /* Tamaño de fuente adecuado */
+}
+
+img{
+  width: 250px;
 }
