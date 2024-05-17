@@ -7,6 +7,7 @@
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Fuente amigable para niños */
+  position: relative; /* Ensures the absolute positioning of the Galileo image works */
 }
 
 /* Header con título y grupo, diseño lado a lado */
@@ -104,6 +105,25 @@
   font-size: 16px; /* Tamaño de fuente adecuado */
 }
 
-img{
+img {
   width: 250px;
+}
+
+/* Estilo para la imagen de Galileo */
+.galileoImage {
+  position: absolute;
+  right: 20px; /* Adjust this value to position it more accurately */
+  bottom: 20px; /* Adjust this value to position it more accurately */
+  max-width: 150px; /* Adjust the size as needed */
+}
+
+@media (max-width: 768px) {
+  .controlButton {
+    font-size: 0.8em;
+    padding: 5px 10px;
+  }
+
+  .galileoImage {
+    display: none; /* Hide image on smaller screens */
+  }
 }

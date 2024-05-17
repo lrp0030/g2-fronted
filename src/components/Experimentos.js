@@ -8,12 +8,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css"; 
 import ejemploImage from '../assets/img/ejemplo.jpg';
-
+import galileoImage from '../assets/img/galileo3.png'; // Import the new image
 
 function Experimento() {
   const [experimento, setExperimento] = useState(null);
   const [pasoActual, setPasoActual] = useState(0);
   const { id } = useParams();
+  
   //Configuración para el carrousel de fotos
   const settings = {
     dots: true,
@@ -21,7 +22,7 @@ function Experimento() {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3
-  }
+  };
 
   useEffect(() => {
     const fetchExperimento = async () => { 
@@ -57,6 +58,7 @@ function Experimento() {
 
   return (
     <div className={styles.experimentoContainer}>
+      <img src={galileoImage} alt="Galileo" className={styles.galileoImage} /> {/* Added image */}
       <div className={styles.header}>
         <h1 className={styles.experimentoTitle}>{experimento.titulo}</h1>
         <span className={styles.grupo}>{experimento.grupo}</span>
@@ -81,21 +83,21 @@ function Experimento() {
           <FaArrowLeft /> Anterior
         </button>
         <div className={styles.carouselContainer}>
-        <Slider {...settings}>
-          <div>
-            <img src={ejemploImage} alt="Experimento" />
-          </div>
-          <div>
-            <img src={ejemploImage} alt="Experimento" />
-          </div>
-          <div>
-            <img src={ejemploImage} alt="Experimento" />
-          </div>
-          <div>
-            <img src={ejemploImage} alt="Experimento" />
-          </div>
-        </Slider>
-      </div>
+          <Slider {...settings}>
+            <div>
+              <img src={ejemploImage} alt="Experimento" />
+            </div>
+            <div>
+              <img src={ejemploImage} alt="Experimento" />
+            </div>
+            <div>
+              <img src={ejemploImage} alt="Experimento" />
+            </div>
+            <div>
+              <img src={galileoImage} alt="Experimento" /> {/* New image */}
+            </div>
+          </Slider>
+        </div>
         <p>Paso {pasoActual + 1}: {experimento.Pasos[pasoActual]}</p>
         <button className={styles.controlButton} onClick={siguientePaso} disabled={pasoActual === experimento.Pasos.length - 1}>
           Siguiente <FaArrowRight />
@@ -110,8 +112,6 @@ function Experimento() {
         </ul>
       </div>
       <p className={styles.explicacion}>{experimento.explicacion}</p>
-
-    
     </div>
   );
 }
