@@ -1,38 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import Auth from './Auth'; // Importa el componente Auth directamente
 
-function IdenUsuario({ userId }) {
-    const [usuario, setUsuario] = useState(null);
-    const { id } = useParams();
+function IdenUsuario() {
+  const [nombreUsuario, setNombreUsuario] = useState('');
+  const { currentUser } = Auth(); 
+  const firestore = getFirestore();
 
-    useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const firestore = getFirestore();
-                const querydb = doc(firestore, 'subcripcion', userId); // Usar userId en lugar de id
-                const res = await getDoc(querydb);
-                if (res.exists()) {
-                    setUsuario(res.data().nombre);
-                } else {
-                    console.log("El documento no existe");
-                }
-            } catch (error) {
-                console.log("Error al obtener el documento:", error);
-            }
-        };
-
-        if (userId) {
-            fetchUser();
+  useEffect(() => {
+    const fetchUserName = async () => {
+      if (currentUser) {
+        try {
+          const userDoc = doc(firestore, 'subcripcion', currentUser.uid);
+          const docSnap = await getDoc(userDoc);
+          if (docSnap.exists()) {
+            const { nombre } = docSnap.data();
+            setNombreUsuario(nombre);
+          }
+        } catch (error) {
+          console.error('Error al obtener el nombre de usuario:', error);
         }
-    }, [userId]);
+      }
+    };
 
-    return (
-        <div className="usuario">
-            {usuario && <h2>{usuario}</h2>}
-        </div>
-    );
+    fetchUserName();
+  }, [currentUser, firestore]);
+
+  return <h2>{nombreUsuario || 'Usuario'}</h2>;
 }
 
 export default IdenUsuario;
+
 

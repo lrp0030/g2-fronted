@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
-import db from './firebaseConfig';
+import { db } from './firebaseConfig';
 import styles from "../assets/css/Experimento.module.css"; 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css"; 
 import galileoImage from '../assets/img/galileo3.png';
+import ejemploImage from '../assets/img/ejemplo.jpg';
 
 function Experimento() {
   const [experimento, setExperimento] = useState(null);
@@ -19,7 +20,6 @@ function Experimento() {
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
         setExperimento({ id: docSnap.id, ...docSnap.data() });
       } else {
         console.log("No such document!");
@@ -29,8 +29,19 @@ function Experimento() {
     fetchExperimento();
   }, [id]);
 
+  useEffect(() => {
+    if (experimento && experimento.Pasos && experimento.Pasos[pasoActual]) {
+      leerTexto(`Paso ${pasoActual + 1}: ${experimento.Pasos[pasoActual]}`);
+    }
+  }, [pasoActual, experimento]);
+
+  const leerTexto = (texto) => {
+    const speech = new SpeechSynthesisUtterance(texto);
+    window.speechSynthesis.speak(speech);
+  };
+
   if (!experimento) {
-    return <div>Loading...</div>;
+    return <div>Cargando...</div>;
   }
 
   const handleSlideChange = () => {

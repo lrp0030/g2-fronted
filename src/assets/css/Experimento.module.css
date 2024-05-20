@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=YourFontFamily:wght@400;700&display=swap');
 
 .experimentoContainer {
+  background-color: #79a981;
+}
+
+.experimento{
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Fuente amigable para niños */
+  position: relative; /* Ensures the absolute positioning of the Galileo image works */
+}
+
   position: fixed;
   top: 0;
   left: 0;
@@ -42,16 +56,21 @@ html, body {
 .experimentoTitle {
   color: #79a981;
   font-size: 36px; /* Tamaño de fuente incrementado */
+  color: #79a981; 
+  font-size: 28px;
   margin-bottom: 0;
 }
 
 .grupo {
+  background-color: #f3f8f3; 
+  padding: 5px 10px;
   background-color: #f3f8f3;
   padding: 10px 20px;
   border-radius: 20px;
   font-size: 30px; /* Tamaño de fuente incrementado */
   color: #79a981;
 }
+ 
 
 .experimentoDescription, .hipotesis, .explicacion, .conclusion {
   color: #ffffff;
@@ -84,6 +103,7 @@ html, body {
   border-left: 5px solid #79a981;
   font-size: 18px; /* Tamaño de fuente incrementado */
 }
+
 
 .controls {
   text-align: center;
@@ -124,6 +144,14 @@ html, body {
   margin-bottom: 20px;
   color: #333;
   font-size: 20px; /* Tamaño de fuente incrementado */
+  background-color: #f0f5f0; 
+  border: 2px solid #79a981; 
+  padding: 15px; 
+  border-radius: 8px; 
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+  color: #333; 
+  font-size: 16px; 
 }
 
 img {

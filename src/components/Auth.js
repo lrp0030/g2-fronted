@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';  // Importar useNavigate
-import app from './firebaseConfig';
-
-const auth = getAuth(app);
+import { useNavigate } from 'react-router-dom';
+import { app, auth } from './firebaseConfig';  // Importar correctamente
 
 function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');  // Estado para manejar errores
-  const navigate = useNavigate();  // Hook para la redirección
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const signIn = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log('Logged in!');
-      navigate('/dashboard');  // Redirige a la ruta del dashboard después del login
+      navigate('/dashboard');
     } catch (error) {
       console.error('Authentication error:', error);
-      setError(error.message);  // Actualiza el estado de error con el mensaje de error
+      setError(error.message);
     }
   };
 
@@ -37,7 +35,7 @@ function Auth() {
         placeholder="Password"
       />
       <button onClick={signIn}>Sign In</button>
-      {error && <p>Error: {error}</p>}  // Muestra errores si existen
+      {error && <p>Error: {error}</p>}
     </div>
   );
 }

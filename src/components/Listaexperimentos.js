@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "./firebaseConfig";
+import { db } from './firebaseConfig';
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 const Listaexperimentos = () => {
@@ -34,6 +34,7 @@ const Listaexperimentos = () => {
                 <div className="btn-menu">
                     <label htmlFor="btn-menu" className="icon-menu"></label>
                 </div>
+                <Link className="flecha" to="/Paginaprincipal"></Link>
                 <h1 className="elemento">EXPERIMENTOS</h1>
                 <div className="lista-enlaces"></div>
             </div>
