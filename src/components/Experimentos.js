@@ -7,11 +7,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css"; 
 import galileoImage from '../assets/img/galileo3.png';
-import ejemploImage from '../assets/img/ejemplo.jpg';
 
 function Experimento() {
   const [experimento, setExperimento] = useState(null);
   const [showGalileo, setShowGalileo] = useState(true);
+  const [pasoActual, setPasoActual] = useState(0); // Definir pasoActual aquí
   const { id } = useParams();
   
   useEffect(() => {
@@ -44,8 +44,9 @@ function Experimento() {
     return <div>Cargando...</div>;
   }
 
-  const handleSlideChange = () => {
+  const handleSlideChange = (current) => {
     setShowGalileo(false); // Oculta la imagen de Galileo al cambiar de diapositiva
+    setPasoActual(current); // Actualizar pasoActual al cambiar de diapositiva
   };
 
   const handleAfterSlideChange = () => {
