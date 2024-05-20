@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "./firebaseConfig";
+import { db } from './firebaseConfig';
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 const Listaexperimentos = () => {

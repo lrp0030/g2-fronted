@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
-import db from './firebaseConfig';
+import { db } from './firebaseConfig';
 import styles from "../assets/css/Experimento.module.css"; 
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Slider from "react-slick";
