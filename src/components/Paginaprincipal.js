@@ -1,24 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/Cursosniveles.css";
 import "../assets/css/Paginalniveles.css";
 import BurguerButton from "./menudesple";
 import IdenUsuario from "./idenusuario";
 
+
 const Paginaprincipal = ({ userId }) => {
   const [isOpen, setIsOpen] = useState(false);
-  
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div>
       <nav>
-        <div className="barra">
-       
+      <div className="barra">
           <h1 className="elemento">SELECCIONA EL NIVEL ACADEMICO</h1>
           <BurguerButton isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </nav>
-      <div className={`menu-lateral ${isOpen ? "open" : ""}`}>
+      <div ref={menuRef} className={`menu-lateral ${isOpen ? "open" : ""}`}>
         <Link to="/Politicas" className="contactos">Contactenos</Link>
         <Link to="/Politica" className="politicas">Politicas de privacidad</Link>
         <Link to="/" className="enlace-cerrar">Cerrar sesión</Link>
