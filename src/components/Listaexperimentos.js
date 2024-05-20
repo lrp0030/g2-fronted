@@ -34,6 +34,7 @@ const Listaexperimentos = () => {
                 <div className="btn-menu">
                     <label htmlFor="btn-menu" className="icon-menu"></label>
                 </div>
+                <Link className="flecha" to="/Paginaprincipal"></Link>
                 <h1 className="elemento">EXPERIMENTOS</h1>
                 <div className="lista-enlaces"></div>
             </div>

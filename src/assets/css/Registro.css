@@ -1,69 +1,85 @@
-.form-register {
+/* Contenedor principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #79A981;
+  }
+  
+  .form-register {
     width: 400px;
-    background: #79A981 !important; /* Color de fondo verde */
+    background: #79A981;
     padding: 30px;
     margin: auto;
     margin-top: 100px;
     font-family: 'Calibri', sans-serif;
     border-radius: 4px;
     color: white;
-}
-
-.form-register h1 {
+  }
+  
+  /* Estilos del encabezado */
+  .form-register h1 {
     margin-bottom: 20px;
     text-align: center;
     font-size: 30px;
-}
-
-.controls {
-    width: 90%;
+  }
+  
+  /* Grupo de formularios */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Etiquetas */
+  .label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Controles de entrada */
+  .controls {
+    width: 100%;
     background: white;
     padding: 10px;
     border: 1px solid #1f53c5;
     font-size: 18px;
     font-family: 'Calibri', sans-serif;
-    margin-bottom: 16px;
-}
-
-.form-register p {
-    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  
+  /* Párrafos */
+  .form-register p {
     text-align: center;
     font-size: 18px;
-    line-height: 40px;
-}
-
-.form-register a {
+    line-height: 1.4;
+  }
+  
+  /* Enlaces */
+  .form-register a {
     color: white;
     text-decoration: none;
-}
-
-.form-register a:hover {
+  }
+  
+  .form-register a:hover {
     text-decoration: underline;
-}
-
-.form-register .boton {
-    width: 85%;
+  }
+  
+  /* Botón de registro */
+  .form-register .boton {
+    width: 100%;
     background: #1f53c5;
     border: none;
     padding: 12px;
     color: white;
-    margin: 16px;
+    margin-top: 10px;
     font-size: 16px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-}
-
-.form-register input {
-    margin-right: 10px;
-}
-
-select {
-    width: 90%;
-    background: white;
-    padding: 10px;
-    border: 1px solid #1f53c5;
-    font-size: 16px;
-    font-family: 'Calibri', sans-serif;
-    margin-bottom: 16px;
-}
+    border-radius: 4px;
+  }
+  
+  .form-register .boton:hover {
+    background: #163d8a;
+  }
+  

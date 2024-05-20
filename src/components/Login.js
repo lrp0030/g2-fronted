@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; // Importa Link
+import { useNavigate, Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import styles from "../assets/css/Login.module.css";
 import Logo from "../assets/img/Logo_educación.png";
@@ -7,17 +7,17 @@ import Logo from "../assets/img/Logo_educación.png";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // Estado para guardar errores
-  const navigate = useNavigate(); // Para redirigir al usuario
-  const auth = getAuth(); // Asume que `getAuth()` fue exportado desde tu config
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const auth = getAuth();
 
   const handleLogin = async (event) => {
-    event.preventDefault(); // Previene el comportamiento por defecto del formulario
+    event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/Paginaprincipal"); // Navega al dashboard principal
+      navigate("/Paginaprincipal");
     } catch (error) {
-      setError(error.message); // Manejo de errores
+      setError(error.message);
       console.error("Error de autenticación:", error);
     }
   };
@@ -30,31 +30,33 @@ const Login = () => {
         </div>
         <form className={styles["login-form"]} onSubmit={handleLogin}>
           <div className={styles["form-group"]}>
-            <label htmlFor="email">Correo electrónico:</label>
+            <label htmlFor="email" className={styles.label}>Correo electrónico:</label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Introduzca el correo electrónico"
+              className={styles.input}
             />
           </div>
           <div className={styles["form-group"]}>
-            <label htmlFor="password">Contraseña:</label>
+            <label htmlFor="password" className={styles.label}>Contraseña:</label>
             <input
               type="password"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Introduzca la contraseña"
+              className={styles.input}
             />
           </div>
           <button type="submit" className={styles["btn-login"]}>Ingresar</button>
           {error && <div className={styles["error"]}>{error}</div>}
         </form>
         <div className={styles["register-link"]}>
-          <p><a href="/registro">Regístrate aquí</a></p>
-          <p><Link to="/contrasena">Recuperar contraseña</Link></p>  
+          <p>¿No tienes cuenta?<Link to="/registro"> Regístrate aquí</Link></p>
+          <p><Link to="/contrasena">Recuperar contraseña</Link></p>
         </div>
       </div>
     </div>

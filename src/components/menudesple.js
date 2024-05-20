@@ -12,4 +12,3 @@ const BurguerButton = ({ isOpen, setIsOpen }) => {
 };
 
 export default BurguerButton;
-
