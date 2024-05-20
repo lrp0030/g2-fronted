@@ -1,15 +1,17 @@
-/* Estilo del contenedor principal */
 .experimentoContainer {
+  background-color: #79a981;
+}
+
+.experimento{
   max-width: 800px;
   margin: auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Fuente amigable para niños */
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive; 
 }
 
-/* Header con título y grupo, diseño lado a lado */
 .header {
   display: flex;
   justify-content: space-between;
@@ -17,20 +19,19 @@
 }
 
 .experimentoTitle {
-  color: #79a981; /* Color principal */
+  color: #79a981; 
   font-size: 28px;
   margin-bottom: 0;
 }
 
 .grupo {
-  background-color: #f3f8f3; /* Color suave complementario */
+  background-color: #f3f8f3; 
   padding: 5px 10px;
   border-radius: 20px;
   font-size: 14px;
   color: #79a981;
 }
-
-/* Estilos para la descripción y preguntas */
+ 
 .experimentoDescription, .hipotesis, .explicacion, .conclusion {
   color: #333;
   font-size: 16px;
@@ -62,7 +63,7 @@
   border-left: 5px solid #79a981;
 }
 
-/* Controles de navegación con iconos */
+
 .controls {
   text-align: center;
   margin-top: 20px;
@@ -94,14 +95,14 @@
 }
 
 .explicacion {
-  background-color: #f0f5f0; /* Fondo claro para contraste */
-  border: 2px solid #79a981; /* Borde del color principal */
-  padding: 15px; /* Espaciado interno para mejor legibilidad */
-  border-radius: 8px; /* Bordes redondeados para un look suave */
-  margin-top: 20px; /* Espaciado superior */
-  margin-bottom: 20px; /* Espaciado inferior */
-  color: #333; /* Color de texto */
-  font-size: 16px; /* Tamaño de fuente adecuado */
+  background-color: #f0f5f0; 
+  border: 2px solid #79a981; 
+  padding: 15px; 
+  border-radius: 8px; 
+  margin-top: 20px; 
+  margin-bottom: 20px; 
+  color: #333; 
+  font-size: 16px; 
 }
 
 img{
