@@ -27,6 +27,53 @@
   align-items: center;
 }
 
+.navigationMuteContainer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 20px);
+  max-width: 800px; /* Ajusta el ancho máximo según sea necesario */
+}
+
+.muteButton {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+}
+
+.controlButton {
+  background-color: #79a981;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.controlButton:not(:last-child) {
+  margin-right: 10px;
+}
+
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+}
+
 
 .sliderContainer {
   width: 80%; /* Ajusta esto según sea necesario */
@@ -241,3 +288,4 @@ img {
     display: none;
   }
 }
+

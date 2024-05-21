@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from './firebaseConfig';
@@ -7,14 +7,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css"; 
 import galileoImage from '../assets/img/galileo3.png';
-import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa'; // Importar iconos
+import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 
 function Experimento() {
   const [experimento, setExperimento] = useState(null);
   const [showGalileo, setShowGalileo] = useState(true);
   const [pasoActual, setPasoActual] = useState(0);
-  const [isMuted, setIsMuted] = useState(false); // Estado para mute
+  const [isMuted, setIsMuted] = useState(false);
   const { id } = useParams();
+  const sliderRef = useRef(null); // Referencia al slider
 
   useEffect(() => {
     const fetchExperimento = async () => { 
@@ -33,6 +34,7 @@ function Experimento() {
 
   const leerTexto = (texto) => {
     if (!isMuted) {
+      window.speechSynthesis.cancel(); // Detener cualquier síntesis en curso
       const speech = new SpeechSynthesisUtterance(texto);
       speech.lang = 'es-ES';
       window.speechSynthesis.speak(speech);
@@ -63,10 +65,10 @@ function Experimento() {
   }
 
   const handleSlideChange = (oldIndex, newIndex) => {
+    window.speechSynthesis.cancel(); // Detener cualquier síntesis en curso
     setShowGalileo(false);
     setPasoActual(newIndex);
   };
-
 
   const handleAfterSlideChange = () => {
     setShowGalileo(true);
@@ -74,7 +76,7 @@ function Experimento() {
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    window.speechSynthesis.cancel(); // Detedfghnugtfer cualquier síntesis de voz en curso al mutear/desmutear
+    window.speechSynthesis.cancel();
   };
 
   const renderSlides = () => {
@@ -135,27 +137,45 @@ function Experimento() {
     return slides;
   };
 
+  const nextSlide = () => {
+    sliderRef.current.slickNext();
+  };
+
+  const prevSlide = () => {
+    sliderRef.current.slickPrev();
+  };
+
   return (
     <div className={styles.experimentoContainer}>
       <div className={styles.sliderContainer}>
         <Slider
+          ref={sliderRef}
           dots={true}
           infinite={true}
           speed={500}
           slidesToShow={1}
           slidesToScroll={1}
+          arrows={false} // Desactivar las flechas
           beforeChange={handleSlideChange}
           afterChange={handleAfterSlideChange}
         >
           {renderSlides()}
         </Slider>
+        <div className={styles.navigationMuteContainer}>
+          <button onClick={toggleMute} className={styles.muteButton}>
+            {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+          </button>
+          <div className={styles.controls}>
+            <button onClick={prevSlide} className={styles.controlButton} disabled={pasoActual === 0}>Anterior</button>
+            <button onClick={nextSlide} className={styles.controlButton} disabled={pasoActual === experimento.Pasos.length + 3}>Siguiente</button>
+          </div>
+        </div>
       </div>
       {showGalileo && <img src={galileoImage} alt="Galileo" className={styles.galileoImage} />}
-      <button onClick={toggleMute} className={styles.muteButton}>
-        {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
-      </button>
     </div>
   );
+  
+  
 }
 
 export default Experimento;
