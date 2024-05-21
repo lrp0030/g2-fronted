@@ -32,7 +32,7 @@ const Paginaprincipal = ({ userId }) => {
         </div>
       </nav>
       <div ref={menuRef} className={`menu-lateral ${isOpen ? "open" : ""}`}>
-        <Link to="/Politicas" className="contactos">Contactenos</Link>
+        <Link to="/Contactenos" className="contactos">Contactenos</Link>
         <Link to="/Politica" className="politicas">Politicas de privacidad</Link>
         <Link to="/" className="enlace-cerrar">Cerrar sesión</Link>
       </div>

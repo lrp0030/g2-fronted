@@ -16,6 +16,7 @@ import Primaria from './components/Primaria';
 import Experimento from './components/Experimentos';
 import Politica from './components/politicas';
 import Terminos from './components/terminos';
+import Contactenos from './components/Contactenos';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,6 +33,7 @@ function App() {
       <Route path="/" element={user ? <Navigate to="/Paginaprincipal" /> : <Login />} />
       <Route path="/Paginaprincipal" element={<Paginaprincipal userId={user ? user.uid : null} />} />
       <Route path="/Login" element={<Login />} />
+      <Route path= "/Contactenos" element={<Contactenos />} />
       <Route path='/Primaria' element={<Primaria />} />
       <Route path='/Listaexperimentos/infantil/:grupo' element={<Listaexperimentos />} />
       <Route path='/Listaexperimentos/primaria/:grupo' element={<Listaexperimentos />} />
