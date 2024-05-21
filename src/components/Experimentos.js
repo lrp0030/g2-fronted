@@ -7,13 +7,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css"; 
 import galileoImage from '../assets/img/galileo3.png';
+import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa'; // Importar iconos
 
 function Experimento() {
   const [experimento, setExperimento] = useState(null);
   const [showGalileo, setShowGalileo] = useState(true);
-  const [pasoActual, setPasoActual] = useState(0); // Definir pasoActual aquí
+  const [pasoActual, setPasoActual] = useState(0);
+  const [isMuted, setIsMuted] = useState(false); // Estado para mute
   const { id } = useParams();
-  
+
   useEffect(() => {
     const fetchExperimento = async () => { 
       const docRef = doc(db, "actividades", "infantil", "actividades", id);
@@ -29,28 +31,49 @@ function Experimento() {
     fetchExperimento();
   }, [id]);
 
-  useEffect(() => {
-    if (experimento && experimento.Pasos && experimento.Pasos[pasoActual]) {
-      leerTexto(`Paso ${pasoActual + 1}: ${experimento.Pasos[pasoActual]}`);
-    }
-  }, [pasoActual, experimento]);
-
   const leerTexto = (texto) => {
-    const speech = new SpeechSynthesisUtterance(texto);
-    window.speechSynthesis.speak(speech);
+    if (!isMuted) {
+      const speech = new SpeechSynthesisUtterance(texto);
+      speech.lang = 'es-ES';
+      window.speechSynthesis.speak(speech);
+    }
   };
+
+  useEffect(() => {
+    if (experimento) {
+      let textoALeer = '';
+      if (pasoActual === 0) {
+        textoALeer = `${experimento.titulo}. ${experimento.descripcion_actividad}`;
+      } else if (pasoActual === 1) {
+        textoALeer = `Materiales necesarios: ${experimento.materiales.join(', ')}`;
+      } else if (pasoActual === 2) {
+        textoALeer = `Preguntas Hipotéticas Iniciales: ${experimento.preguntas_iniciales_hipotesis.join(', ')}`;
+      } else if (pasoActual >= 3 && pasoActual < 3 + experimento.Pasos.length) {
+        const indexPaso = pasoActual - 3;
+        textoALeer = `Paso ${indexPaso + 1}: ${experimento.Pasos[indexPaso]}`;
+      } else if (pasoActual === 3 + experimento.Pasos.length) {
+        textoALeer = `Preguntas Finales para Conclusión: ${experimento.preguntas_finales_conclusion.join(', ')}. ${experimento.explicacion}`;
+      }
+      leerTexto(textoALeer);
+    }
+  }, [pasoActual, experimento, isMuted]);
 
   if (!experimento) {
     return <div>Cargando...</div>;
   }
 
-  const handleSlideChange = (current) => {
-    setShowGalileo(false); // Oculta la imagen de Galileo al cambiar de diapositiva
-    setPasoActual(current); // Actualizar pasoActual al cambiar de diapositiva
+  const handleSlideChange = (oldIndex, newIndex) => {
+    setShowGalileo(false);
+    setPasoActual(newIndex);
   };
 
   const handleAfterSlideChange = () => {
-    setShowGalileo(true); // Muestra la imagen de Galileo después de cambiar la diapositiva
+    setShowGalileo(true);
+  };
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+    window.speechSynthesis.cancel(); // Detener cualquier síntesis de voz en curso al mutear/desmutear
   };
 
   const renderSlides = () => {
@@ -95,6 +118,19 @@ function Experimento() {
         </div>
       );
     });
+    slides.push(
+      <div key="conclusion">
+        <div className={styles.conclusion}>
+          <h3>Preguntas Finales para Conclusión:</h3>
+          <ul>
+            {experimento.preguntas_finales_conclusion.map(pregunta => (
+              <li key={pregunta}>{pregunta}</li>
+            ))}
+          </ul>
+        </div>
+        <p className={styles.explicacion}>{experimento.explicacion}</p>
+      </div>
+    );
     return slides;
   };
 
@@ -111,20 +147,12 @@ function Experimento() {
           afterChange={handleAfterSlideChange}
         >
           {renderSlides()}
-          <div key="conclusion">
-            <div className={styles.conclusion}>
-              <h3>Preguntas Finales para Conclusión:</h3>
-              <ul>
-                {experimento.preguntas_finales_conclusion.map(pregunta => (
-                  <li key={pregunta}>{pregunta}</li>
-                ))}
-              </ul>
-            </div>
-            <p className={styles.explicacion}>{experimento.explicacion}</p>
-          </div>
         </Slider>
       </div>
       {showGalileo && <img src={galileoImage} alt="Galileo" className={styles.galileoImage} />}
+      <button onClick={toggleMute} className={styles.muteButton}>
+        {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+      </button>
     </div>
   );
 }

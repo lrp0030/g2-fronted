@@ -3,11 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center; 
+    background-image: url('../img/laboratorio.jpg');
+
   }
   
   .cuadros {
     width: 100%; 
-    max-width: 1200px; 
+    max-width: 800px; 
     margin-bottom: 20px; 
     background-color: #f0f0f0;
     padding: 20px;
@@ -19,6 +21,7 @@
     background-size:cover;
   background-position: center;
   position: relative;
+  opacity: 0.91;
   }
   
   .cuadros:hover {
