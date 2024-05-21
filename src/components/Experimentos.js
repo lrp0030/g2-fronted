@@ -67,6 +67,7 @@ function Experimento() {
     setPasoActual(newIndex);
   };
 
+  
   const handleAfterSlideChange = () => {
     setShowGalileo(true);
   };
