@@ -67,14 +67,14 @@ function Experimento() {
     setPasoActual(newIndex);
   };
 
-  
+
   const handleAfterSlideChange = () => {
     setShowGalileo(true);
   };
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    window.speechSynthesis.cancel(); // Detener cualquier síntesis de voz en curso al mutear/desmutear
+    window.speechSynthesis.cancel(); // Detenugtfer cualquier síntesis de voz en curso al mutear/desmutear
   };
 
   const renderSlides = () => {
