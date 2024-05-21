@@ -52,3 +52,10 @@
     background-color: #333333; /* Gris 2 */
   }
   
+  .success-message {
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+  }
+  
