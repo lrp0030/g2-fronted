@@ -74,7 +74,7 @@ function Experimento() {
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    window.speechSynthesis.cancel(); // Detenugtfer cualquier síntesis de voz en curso al mutear/desmutear
+    window.speechSynthesis.cancel(); // Detedfghnugtfer cualquier síntesis de voz en curso al mutear/desmutear
   };
 
   const renderSlides = () => {
